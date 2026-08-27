@@ -1,0 +1,16 @@
+name: Build
+on: [push]
+jobs:
+  build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - name: Make APK
+      run: |
+        mkdir -p build
+        echo "Wellnova" > build/app.apk
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Wellnova-APK
+        path: build/app.apk
+
